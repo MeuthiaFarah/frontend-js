@@ -1,0 +1,83 @@
+/* small screen */
+.container {
+  margin: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.form__left {
+  margin-bottom: 1rem;
+}
+
+.form__image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 25px;
+}
+
+.form__title {
+  color: #480CA8;
+  margin-bottom: 1rem;
+  font-size: 2.44rem;
+}
+
+.input__title {
+  color: #480CA8;
+}
+
+.input__year {
+  margin-bottom: 1rem;
+  color: #480CA8;
+}
+
+input {
+  border-color: #b5179e;
+  border-radius: 10px;
+  padding: 0.3rem 1.1rem;
+}
+
+.form__button {
+  padding: 0.5rem 5rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #480CA8;
+  color: #fff;
+}
+
+/* Medium Screen */
+@media (min-width: 768px) {
+  /*
+   * Nothing TODO Here.
+   * We dont change style Hero. 
+   */
+}
+
+/* Large Screen */
+@media(min-width: 992px) {
+  .container {
+    max-width: 1200px;
+    margin: 3rem auto;
+  }
+
+  .form {
+    margin: 0 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .form__left {
+    flex-basis: 60%;
+    padding: 1rem;
+  }
+
+  .form__right {
+    flex-basis: 40%;
+    margin-left: 3rem;
+  }
+}

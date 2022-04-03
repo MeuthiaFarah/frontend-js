@@ -1,0 +1,14 @@
+.container {
+  background-color: #480CA8;
+  padding: 1rem;
+  color: #fff;
+  text-align: center;
+}
+
+.footer__title {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  
+}

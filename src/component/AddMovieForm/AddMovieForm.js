@@ -15,11 +15,13 @@ function AddMovieForm() {
           <h2 className={styles.form__title}>Add Movie</h2>
           <form className={styles.input} action="">
             <div className={styles.input__title}>
-              <p className={styles.title}>Title</p>
+              <label className={styles.input__label}>Title</label>
+              <br />
               <input type="text" name="title" />
             </div>
             <div className={styles.input__year}>
-              <p className={styles.year}>Year</p>
+              <label className={styles.input__label}>Year</label>
+              <br />
               <input type="text" name="tahun" />
             </div>
             <button className={styles.form__button}>Submit</button>

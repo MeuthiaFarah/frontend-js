@@ -58,13 +58,13 @@ function AddMovieForm(props) {
       setIsDateError(true);
       setIsTitleError(false);
     }
-    else if (picture === "") {
-      setIsPictureError(true);
+    else if (genre === "genre") {
+      setIsGenreError(true);
       setIsDateError(false);
       setIsTitleError(false);
     }
-    else if (genre === "") {
-      setIsGenreError(true);
+    else if (picture === "") {
+      setIsPictureError(true);
       setIsTitleError(false);
       setIsDateError(false);
       setIsPictureError(false);
@@ -75,15 +75,16 @@ function AddMovieForm(props) {
         id: nanoid(),
         title: title,
         year: date,
-        type: genre,
+        type: "movie",
         poster: picture
       };
 
       setMovies([ ...movies, movie ]);
       setIsTitleError(false);
       setIsDateError(false);
-      setIsPictureError(false);
       setIsGenreError(false);
+      setIsPictureError(false);
+      
     };
   };
   
@@ -126,7 +127,7 @@ function AddMovieForm(props) {
               <label className={styles.input__label}>Genre</label>
               <br />
               <select onChange={handleGenre} className={styles.genre} name="genre" id="">
-                <option className={styles.genre__option} value={genre}> </option>
+                <option className={styles.genre__option} value={genre}>Genre</option>
                 <option className={styles.genre__option} value={genre}>Horror</option>
                 <option className={styles.genre__option} value={genre}>Comedy</option>
                 <option className={styles.genre__option} value={genre}>Action</option>
@@ -134,7 +135,7 @@ function AddMovieForm(props) {
                 <option className={styles.genre__option} value={genre}>Dll</option>
               </select>
               {
-                isGenreError ? <Alert>Date wajib diisi</Alert> : ""
+                isGenreError ? <Alert>Genre wajib diisi</Alert> : ""
               }
             </div>
             

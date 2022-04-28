@@ -1,14 +1,9 @@
 import Movie from "../Movie/Movie";
 import styles from "./Movies.module.css";
-// import data movies
-import data  from "../../utils/constants/data";
-import { useState } from "react";
 import { nanoid } from "nanoid";
 
-function Movies() {
-  // variable state
-  // destructing: set nilai awal, set fungsi, dan masukkan param data awal
-  const [movies, setMovies] = useState(data)
+function Movies(props) {
+  const { movies, setMovies } = props;
   
   // fungsi untuk handle click
   function handleClick() {
@@ -22,7 +17,7 @@ function Movies() {
 
     // menambahkan movie ke state movies
     // spread operator : untuk copy dan merge data
-    setMovies([...movies, movie])
+    setMovies([ ...movies, movie ]);
   }
 
   return (

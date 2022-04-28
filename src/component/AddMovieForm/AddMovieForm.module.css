@@ -29,9 +29,12 @@
   color: #480CA8;
 }
 
-.genre__option {
-  border: 1rem double #480CA8;
-  margin-right: 2rem;
+.genre {
+  border-color: #b5179e;
+  border-radius: 10px;
+  border-width: 2px;
+  padding: 0.3rem 1.1rem;
+  width: 100%;
 }
 
 .input__2{
@@ -39,7 +42,7 @@
   color: #480CA8;
 }
 
-input {
+input, select {
   border-color: #b5179e;
   border-radius: 10px;
   padding: 0.3rem 1.1rem;

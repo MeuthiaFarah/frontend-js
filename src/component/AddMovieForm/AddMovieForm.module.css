@@ -25,11 +25,16 @@
   font-size: 2.44rem;
 }
 
-.input__title {
+.input {
   color: #480CA8;
 }
 
-.input__year {
+.genre__option {
+  border: 1rem double #480CA8;
+  margin-right: 2rem;
+}
+
+.input__2{
   margin-bottom: 1rem;
   color: #480CA8;
 }

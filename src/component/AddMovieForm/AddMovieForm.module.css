@@ -58,6 +58,7 @@ input, select {
   color: #fff;
 }
 
+
 /* Medium Screen */
 @media (min-width: 768px) {
   .input__label {

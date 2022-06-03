@@ -6,72 +6,58 @@ import styles from "./AddMovieForm.module.css";
 function AddMovieForm(props) {
 	const { movies, setMovies } = props;
 
-	// membuat state title
-	const [title, setTitle] = useState("");
+	// membuat state object
+	const [formData, setFormData] = useState({
+		title: "",
+		date: "",
+		picture: "",
+		genre: "",
+	});
 
-	// membuat state year
-	const [date, setDate] = useState("");
+	// membuat function handleChange untuk handle seluruh input
+	// gunakan spread dan compute value(yang bisa berubah sesuai property nya)
+	function handleChange(e) {
+		const { name, value } = e.target;
 
-	// membuat state picture
-	const [picture, setPicture] = useState("");
-
-	// membuat state genre
-	const [genre, setGenre] = useState("");
-
-	// membuat state handling error
-	const [isTitleError, setIsTitleError] = useState(false);
-	const [isDateError, setIsDateError] = useState(false);
-	const [isPictureError, setIsPictureError] = useState(false);
-	const [isGenreError, setIsGenreError] = useState(false);
-
-	// membuat function handle title
-	function handleTitle(e) {
-		setTitle(e.target.value);
+		setFormData({
+			...formData,
+			[name]: value,
+		});
 	}
 
-	// membuat function handle year
-	function handleDate(e) {
-		setDate(e.target.value);
-	}
+	// membuat state object untuk handling error
+	const [ isError, setHandleError ] = useState({
+		isTitleError: false,
+		isDateError: false,
+		isPictureError: false,
+		isGenreError: false,
+	});
 
-	// membuat function handle picture
-	function handlePicture(e) {
-		setPicture(e.target.value);
-	}
+	const { title, date, picture, genre } = formData;
 
-	// membuat function handle genre
-	function handleGenre(e) {
-		setGenre(e.target.value);
-	}
+	const { isTitleError, isDateError, isPictureError, isGenreError } = isError;
 
 	// function validasi
 	function validate(e) {
 		// jika title kosong maka set error title true
 		if (title === "") {
-			setIsTitleError(true);
+			setHandleError({...isError, isTitleError: true});
 			return false;
 		}
 		// jika date kosong maka set error date true
 		else if (date === "") {
-			setIsDateError(true);
-			setIsTitleError(false);
+			setHandleError({...isError, isDateError: true, isTitleError: false});
 			return false;
 		} else if (picture === "") {
-			setIsPictureError(true);
-			setIsDateError(false);
-			setIsTitleError(false);
+			setHandleError({...isError, isPictureError: true, isDateError: false, isTitleError: false});
 			return false;
-		} else if (genre === "") {
-			setIsGenreError(true);
-			setIsTitleError(false);
-			setIsDateError(false);
-			setIsPictureError(false);
+		} else if ([genre] === "") {
+			setHandleError({...isError, isGenreError: true, isPictureError: false, isDateError: false, isTitleError: false});
 			return false;
 		} else {
-			setIsTitleError(false);
-			setIsDateError(false);
-			setIsGenreError(false);
-			setIsPictureError(false);
+			setHandleError({
+				...isError
+			})
 			return true;
 		}
 	}
@@ -120,7 +106,7 @@ function AddMovieForm(props) {
 							<label className={styles.input__label}>Title</label>
 							<br />
 							<input
-								onChange={handleTitle}
+								onChange={handleChange}
 								type="text"
 								name="title"
 								value={title}
@@ -133,9 +119,9 @@ function AddMovieForm(props) {
 							<label className={styles.input__label}>Year</label>
 							<br />
 							<input
-								onChange={handleDate}
+								onChange={handleChange}
 								type="number"
-								name="tahun"
+								name="date"
 								value={date}
 							/>
 							{isDateError ? <Alert>Date wajib diisi</Alert> : ""}
@@ -146,9 +132,9 @@ function AddMovieForm(props) {
 							<label className={styles.input__label}>Picture</label>
 							<br />
 							<input
-								onChange={handlePicture}
+								onChange={handleChange}
 								type="text"
-								name="gambar"
+								name="picture"
 								value={picture}
 							/>
 							{isPictureError ? <Alert>Picture wajib diisi</Alert> : ""}
@@ -159,14 +145,12 @@ function AddMovieForm(props) {
 							<label className={styles.input__label}>Genre</label>
 							<br />
 							<select
-								onChange={handleGenre}
+								onChange={handleChange}
 								className={styles.genre}
 								name="genre"
 								id=""
 							>
-								<option id="1" className={styles.genre__option} value={genre}>
-									Genre
-								</option>
+
 								<option className={styles.genre__option} value={genre}>
 									Horror
 								</option>

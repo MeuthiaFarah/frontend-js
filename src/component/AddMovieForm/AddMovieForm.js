@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 import { useState } from "react";
 import Alert from "../Alert/Alert";
+import Button from "../ui/Button";
 import styles from "./AddMovieForm.module.css";
 
 function AddMovieForm(props) {
@@ -26,7 +27,7 @@ function AddMovieForm(props) {
 	}
 
 	// membuat state object untuk handling error
-	const [ isError, setHandleError ] = useState({
+	const [isError, setHandleError] = useState({
 		isTitleError: false,
 		isDateError: false,
 		isPictureError: false,
@@ -41,23 +42,34 @@ function AddMovieForm(props) {
 	function validate(e) {
 		// jika title kosong maka set error title true
 		if (title === "") {
-			setHandleError({...isError, isTitleError: true});
+			setHandleError({ ...isError, isTitleError: true });
 			return false;
 		}
 		// jika date kosong maka set error date true
 		else if (date === "") {
-			setHandleError({...isError, isDateError: true, isTitleError: false});
+			setHandleError({ ...isError, isDateError: true, isTitleError: false });
 			return false;
 		} else if (picture === "") {
-			setHandleError({...isError, isPictureError: true, isDateError: false, isTitleError: false});
+			setHandleError({
+				...isError,
+				isPictureError: true,
+				isDateError: false,
+				isTitleError: false,
+			});
 			return false;
 		} else if ([genre] === "") {
-			setHandleError({...isError, isGenreError: true, isPictureError: false, isDateError: false, isTitleError: false});
+			setHandleError({
+				...isError,
+				isGenreError: true,
+				isPictureError: false,
+				isDateError: false,
+				isTitleError: false,
+			});
 			return false;
 		} else {
 			setHandleError({
-				...isError
-			})
+				...isError,
+			});
 			return true;
 		}
 	}
@@ -150,7 +162,6 @@ function AddMovieForm(props) {
 								name="genre"
 								id=""
 							>
-
 								<option className={styles.genre__option} value={genre}>
 									Horror
 								</option>
@@ -171,7 +182,7 @@ function AddMovieForm(props) {
 						</div>
 
 						{/* button submit */}
-						<button className={styles.form__button}>Submit</button>
+						<Button variant="secondary" full>Submit</Button>
 					</form>
 				</div>
 			</section>

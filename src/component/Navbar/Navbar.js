@@ -2,34 +2,44 @@ import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 function Navbar() {
-  return (
-    <div className={styles.container}>
-      <nav className={styles.navbar}>
-        <div>
-          <h1 className={styles.navbar__title}>Movie App</h1>
-        </div>
-        <div>
-          <ul className={styles.navbar__list}>
-            <li className={styles.navbar__item}>
-              <Link to="/">Home</Link>
-            </li>
-            <li className={styles.navbar__item}>
-              <Link to="/movie/create">App Movie</Link>
-            </li>
-            <li className={styles.navbar__item}>
-            <Link to="/movie/popular">Popular</Link>
-            </li>
-            <li className={styles.navbar__item}>
-            <Link to="/movie/now">Now Playing</Link>
-            </li>
-            <li className={styles.navbar__item}>
-            <Link to="/movie/top">Top Rated</Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-  )
-};
+	return (
+		<div className={styles.container}>
+			<nav className={styles.navbar}>
+				<div>
+					<h1 className={styles.navbar__title}>Movie App</h1>
+				</div>
+				<div>
+					<ul className={styles.navbar__list}>
+						<li className={styles.navbar__item}>
+							<Link className={styles.navbar__link} to="/">
+								Home
+							</Link>
+						</li>
+						<li className={styles.navbar__item}>
+							<Link className={styles.navbar__link} to="/movie/create">
+								App Movie
+							</Link>
+						</li>
+						<li className={styles.navbar__item}>
+							<Link className={styles.navbar__link} to="/movie/popular">
+								Popular
+							</Link>
+						</li>
+						<li className={styles.navbar__item}>
+							<Link className={styles.navbar__link} to="/movie/now">
+								Now Playing
+							</Link>
+						</li>
+						<li className={styles.navbar__item}>
+							<Link className={styles.navbar__link} to="/movie/top">
+								Top Rated
+							</Link>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	);
+}
 
 export default Navbar;

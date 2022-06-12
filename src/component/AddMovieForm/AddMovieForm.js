@@ -182,7 +182,7 @@ function AddMovieForm(props) {
 						</div>
 
 						{/* button submit */}
-						<Button variant="secondary" full>Submit</Button>
+						<Button variant="secondary" full size="lg">Submit</Button>
 					</form>
 				</div>
 			</section>

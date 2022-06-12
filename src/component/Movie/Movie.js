@@ -1,18 +1,21 @@
-import styles from "./Movie.module.css";
+// import styled movie
+import StyledMovie from "./Movie.styled";
 
 // Movie menangkap props
 // props biar datanya dinamis
 function Movie(props) {
-  // destructing array
-  const { film } = props;
+	// destructing array
+	const { film } = props;
 
-  return (
-    <div className={styles.movie}>
-      <img className={styles.movie__image} src={film.poster} alt="" />
-      <h3 className={styles.movie__title}>{film.title}</h3>
-      <p className={styles.movie__date}>{film.year}</p>
-    </div>
-  )
+	return (
+		<StyledMovie>
+			<div>
+				<img src={film.poster} alt="" />
+				<h3>{film.title}</h3>
+				<p>{film.year}</p>
+			</div>
+		</StyledMovie>
+	);
 }
 
 export default Movie;

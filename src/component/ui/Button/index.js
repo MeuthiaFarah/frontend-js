@@ -1,11 +1,25 @@
 // import styled
 import styled, { css } from "styled-components";
-
 // buat object warna
 
 // buat componen button memakai deklarasi variabel
 const Button = styled.button`
-	padding: 0.8rem 2rem;
+	padding: ${({ size, theme }) => {
+		if ({ size }) {
+			return theme.padding[size];
+		} else {
+			return theme.padding.md;
+		}
+	}};
+
+	font-size: ${({ size, theme }) => {
+		if ({ size }) {
+			return theme.fontSize[size];
+		} else {
+			return theme.fontSize.md;
+		}
+	}};
+
 	border: none;
 	border-radius: 10px;
 	color: #fff;
